@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component;
 public class KafkaListeners {
     @KafkaListener(
             topics = "rudigercode",
-            groupId = "groupId"
+            groupId = "groupId",
+            containerFactory = "messageFactory"
     )
-    void listener(String data){
+    void listener(Message data){
         System.out.println("Listener received: "+ data + " 🎉");
     }
 }
